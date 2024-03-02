@@ -1,0 +1,7 @@
+{
+  "name": "p04-task-list",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
