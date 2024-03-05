@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Tasks</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tasks</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Button to add a new task -->
+  <ion-item>
+    <ion-input type="text"
+               label="Add new task:"
+               labelPlacement="floating"
+               placeholder="Task"
+               [(ngModel)]="newTaskTittle">
+    </ion-input>
+    <ion-button (click)="addTask()">
+      Add
+    </ion-button>
+  </ion-item>
+
+  <!-- Showing the task's list -->
+  <ion-list>
+    <ion-item *ngFor="let task of tasks">
+      <ion-checkbox labelPlacement="end"
+                    justify="start"
+                    [(ngModel)]="task.completed"
+                    (ionChange)="toggleTaskCompleted()">
+        {{task.title}}
+      </ion-checkbox>
+      <ion-button (click)="deleteTask()"
+                  slot="end"
+                  color="danger">
+        Delete
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
