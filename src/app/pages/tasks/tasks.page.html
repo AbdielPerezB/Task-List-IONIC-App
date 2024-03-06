@@ -16,7 +16,7 @@
     <ion-input type="text"
                label="Add new task:"
                labelPlacement="floating"
-               placeholder="Task"
+               placeholder="Title"
                [(ngModel)]="newTaskTittle">
     </ion-input>
     <ion-button (click)="addTask()">
@@ -30,14 +30,22 @@
       <ion-checkbox labelPlacement="end"
                     justify="start"
                     [(ngModel)]="task.completed"
-                    (ionChange)="toggleTaskCompleted()">
+                    (ionChange)="toggleTaskCompleted(task.id)">
         {{task.title}}
       </ion-checkbox>
-      <ion-button (click)="deleteTask()"
+
+      <!-- <ion-button (click)="deleteTask(task.id)"
+                  slot="end"
+                  color="danger">
+        Delete
+      </ion-button> -->
+      
+      <ion-button (click)="alertConfirmDelete(task.id)"
                   slot="end"
                   color="danger">
         Delete
       </ion-button>
+
     </ion-item>
   </ion-list>
 
